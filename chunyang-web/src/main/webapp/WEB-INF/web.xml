@@ -1,0 +1,199 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <icon>
+  <small-icon> /WEB-INF/resources/images/smalllogo.gif</small-icon>
+  <large-icon> /WEB-INF/resources/images/largelogo.gif</large-icon>
+  </icon>      
+   
+   <!-- 项目、应用名称 -->
+  <display-name>myFirestMaven</display-name>
+  <!-- 项目、应用说明性文件 -->
+  <description>这是我的第一个maven项目</description>
+  
+ <!--  distributable 元素为空标签,它的存在与否可以指定站台是否可分布式处理.如果web.xml中出现这个元素,则代表站台在开发时已经
+被设计为能在多个JSP Container 之间分散执行.
+范例: -->
+<distributable/>
+  
+  <servlet-mapping>  
+            <servlet-name>default</servlet-name>  
+            <url-pattern>*.css</url-pattern>  
+    </servlet-mapping>
+    <servlet-mapping>  
+            <servlet-name>default</servlet-name>  
+            <url-pattern>*.gif</url-pattern>  
+    </servlet-mapping>
+    <servlet-mapping>  
+            <servlet-name>default</servlet-name>  
+            <url-pattern>*.jpg</url-pattern>  
+    </servlet-mapping>  
+    <servlet-mapping>  
+            <servlet-name>default</servlet-name>  
+            <url-pattern>*.js</url-pattern>  
+    </servlet-mapping>  
+    <servlet-mapping> 
+            <servlet-name>default</servlet-name> 
+            <url-pattern>*.html</url-pattern> 
+    </servlet-mapping>
+  
+  <!-- 应用范围内(即整个项目)的上下文初始化参数 -->
+  <!-- 1、项目启动时，首先加载listener和context 然后创建一个ServletContext（上下文）
+       2、读取context中的param-name 并转化为键值交对给ServletContext  然后容器会创建<listener></listener>中的类实例，即创建监听（备注：listener中的类可以是自定义的类
+  但是必须要继承ServletContextListener）
+       3、在监听的类中会有一个contextInitialized(ServletContextEvent event)初始化方法，在这个方法中可以通过event.getServletContext().getInitParameter("contextConfigLocation") 
+   来得到context-param 设定的值。在这个类中还必须有一个contextDestroyed(ServletContextEvent event) 销毁方法.用于关闭应用前释放资源，比如说数据库连接的关闭。
+       4、得到这个context-param的值之后,你就可以做一些操作了.注意,这个时候你的WEB项目还没有完全启动完成.这个动作会比所有的Servlet都要早。
+  -->
+  <!-- 由上面的初始化过程可知容器对于web.xml的加载过程是context-param >> listener  >> fileter  >> servlet -->
+  <!-- 调用方法：
+       1、 页面中
+		${initParam.contextConfigLocation}
+	   2、Servlet中
+		String paramValue=getServletContext().getInitParameter("contextConfigLocation")
+   -->
+  <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+        <!-- 默认是/WEB-INF/applicationContext.xml -->
+  </context-param>
+  
+  
+  
+  
+  <!-- 过滤器元素将一个名字与javax.servlet.Filter相关联 -->
+  <filter>
+  <!-- 过滤器名字 -->
+     <filter-name>filter</filter-name>
+     <!-- 过滤器的类路径  filter-class 中指定的过滤器类须继承 javax.servlet.Filter 具有须有以下三种方法：
+       1、init(FilterConfig filterConfig):初始化，一般情况下是读取init-param中的param-name中的值，filterConfig.getinitParameter("param-name")
+       2、doFilter()：用于对request、response进行处理，并且通过chain.doFilter交给下一个控制器
+       3、destory():资源销毁
+     -->
+     <filter-class>com.maven.filter.MyFilter</filter-class>
+     <init-param>
+       <param-name>param-name</param-name>
+       <param-value>param-value</param-value>
+     </init-param>
+  </filter>
+  
+  <!-- 这里要注意，需要将所有的filter都放在filter-maping之上 -->
+  
+  
+  <!-- 一旦定义了filter过滤器 就需要filter-mapping把过滤器与一个或多个servlet或jsp页面相关联 -->
+  <filter-mapping>
+    <!-- 过滤器名字 -->
+    <filter-name>filter</filter-name>
+    <!-- 拦截器拦截的路径配置 -->
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 监听器 
+    listener类似load-on-startup Servlet 在web启动时，启动某些后台程序，这些后台程序负责为系统提供支持
+    Listener 与load-on-startup Servlet 的区别在于: Listener 的启动时机比load-on-startup Servlet 早，只是Listener 是Servlet 2.3 规范之后才出现的。
+	使用Listener 只需要两个步骤:
+	(1)创建Listener 实现类。
+	(2)在web.xml 文件中配置Listener。
+	一、创建Listener 实现类
+	创建Listener 类必须实现ServletContextListener 接口，该接口包含两个方法。
+	• contextInitialized(ServletContextEvent sce): 启动Web 应用时时候。
+	• contextDestroyed(ServletContextEvent sce): 关闭Web 应用时候。
+	listener 只是在web启动和关闭的是后进行相关测操作，而不会处理用户的请求（用户请求处理需要使用filter进行处理），因此不需要url
+  -->
+  <listener>
+    <!-- listener-class 指定监听器的实现类 -->
+    
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- servlet: 主要是用于将servlet类与url进行绑定，当用户访问该url时，实际上就是访问该servlet类 -->
+  <servlet>
+    <!-- serlvlet的名字，不要重复 -->
+    <servlet-name>SpringMVC</servlet-name>
+    <!-- servlet类的路径 -->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:SpringMVC-servlet.xml</param-value>
+    </init-param> 
+    <Load-on-startup>1</Load-on-startup>
+    <!-- Load-on-startup :标记容器是否在启动的时候就加载这个servlet，可以在这个servlet中加入你需要在项目启动时启动的相关内容
+        当值为0或者大于0时，表示容器在应用启动时就加载这个servlet； 
+	当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。 
+	正数的值越小，启动该servlet的优先级越高。 
+     -->
+  </servlet>
+
+  <servlet-mapping>
+  	  <!-- serlvlet的名字，不要重复 -->
+      <servlet-name>SpringMVC</servlet-name>
+      <!-- 这是用户访问的路径 注意不要重复 -->
+      <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 笔者：如果想要深入的了解servlet 可以查看mvc相关内容 -->
+  
+  
+  <!-- session-config 主要是对会话进行处理,当一个会话在一定的时间内没有被访问，该会话将被终止，以节省内存
+    处理方式有三种：
+    1、可以通过HttpSession的setMaxinactiveinterval方法进行设置
+    2、使用<session-config>进行配置
+    3、 在Tomcat的/conf/web.xml中session-config,默认值为：30分钟 设置方式与web.xml文件设置方式相同
+   -->
+  <session-config>
+     <session-timeout>2</session-timeout> <!-- 2分钟，如果设置的值小于等于0 则会话将不会过期 -->
+     <!-- 会话追踪配置 
+     <tracking-mode>用于表示容器应该使用哪种技术追踪会话ID，它的合法值有：
+     URL:容器将只在URL中内嵌会话ID 。不使用cookie或SSL会话ID。这种方式非常不安全。
+     COOKIE:容器将使用会话cookie追踪会话ID 。该技术非常安全。
+     SSL:容器将使用SSL会话ID作为HTTP会话ID。该方法是最安全的方式，但要求使用的所有请求都必须是HTTPS请求。
+          可以为<tracking-mode>配置多个值，表示容器可以使用多种策略。
+	 只有在追踪模式中使用了COOKIE时，才可以使用<cookie-config>标签。
+			 通过标签<name>可以自定义会话cookie的名字。默认值为JSESSIONID
+			标签<domain>和<path>对应着cookie的Domain和Path特性。Web容器已经设置了正确的默认值，因此通常不需要自定义它们。
+			标签<comment>将在会话ID cookie中添加Comment特性，在其中可以添加任意文本。这通常用于解释cookie的目的，并告诉用户网站的隐私策略。
+			标签<http-only>和<secure>对应着cookie的HttpOnly的Secure特性，它们的默认值都是假
+			最后一个标签<max-age>指定了cookie的Max-Age特性，用于控制cookie何时过期。默认情况下，cookie没有过期日期，这意味着它将在浏览器关闭时过期。可以自定义该值，单位为秒（<session-timeout>以分钟为单位）。 
+     -->
+    <!-- <cookie-config>  
+        <name>JSESSIONID</name>  
+        <domain>example.org</domain>  
+        <path>/shop</path>  
+        <comment>  
+            some information  
+        </comment>  
+        <http-only>true</http-only>  
+        <secure>false</secure>  
+        <max-age>1800</max-age>  
+    </cookie-config>  
+    <tracking-mode>COOKIE</tracking-mode>  
+    <tracking-mode>URL</tracking-mode>  
+    <tracking-mode>SSL</tracking-mode>  -->
+    
+  </session-config>
+  
+  <!-- 欢迎页面 -->
+  <welcome-file-list>
+    <welcome-file>/</welcome-file>
+  </welcome-file-list>
+  
+  <!-- err-page:在http请求返回特定的状态码，或抛出异常时 可以制定需要显示的页面 -->
+  <!-- 状态码配置 -->
+  <error-page>
+     <error-code>500</error-code>
+     <location>/WEB/INF/error/500.html</location>  
+  </error-page>
+  <error-page>
+     <error-code>400</error-code>
+     <location>/WEB/INF/error/400.html</location>  
+  </error-page>
+  <!-- 异常配置 
+    <error-page>
+     <exception-type>java.lang.NullException</exception-type>
+     <location>/error.jsp</location>  
+  </error-page>
+  -->
+  
+</web-app>
