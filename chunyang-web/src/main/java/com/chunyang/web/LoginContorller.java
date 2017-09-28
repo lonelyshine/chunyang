@@ -45,7 +45,7 @@ public class LoginContorller {
 		log.info(testnum);
 		userService.hasMatchUser("sa", "sa");
 		
-		System.out.println("asdgsas高达sd");
+		System.out.println("asdgsassd");
 		
 		
 		return "login";
