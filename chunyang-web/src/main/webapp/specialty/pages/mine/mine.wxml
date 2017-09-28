@@ -1,0 +1,104 @@
+<!--pages/mine/mine.wxml-->
+
+<view class="personal_all">
+<image class="setup" src="../../images/setup.png"></image>
+<view class="personal">个人中心</view>
+
+
+<button class="button">登录</button>  <button class="button">注册</button>
+</view>
+
+<view class="myorders">
+   <view class="orders">我的订单</view> <view class="allorders">查看全部订单 ></view>
+</view>
+
+<!-- 分割线 -->
+<view class="cut-off"></view>
+
+<view class="type">
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+</view>
+<!-- 分割线 -->
+<view class="wcut-off"></view>
+
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="wcut-off"></view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>
+
+<view class="mymodule">
+   <image class="mymodule-img"  src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image> 
+   <view class="mymodule-title">
+   <view class="">我的积分<view class="superscript">></view></view>
+   <view class="cut-off"></view>
+   </view>
+</view>

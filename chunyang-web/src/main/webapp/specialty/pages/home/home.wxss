@@ -1,0 +1,60 @@
+/* pages/home/home.wxss */
+.slide-image{  
+    width: 100%;  
+}
+.type{
+  display:flex;
+  flex-direction:row;
+}
+.types{
+ width: 15%;
+ height: 112.5rpx;
+ margin-top: 10rpx;
+ margin-left: 8%;
+ float: left;/*这里不能使用display：inline 因为使用该属性会导致宽度值和高度值 不起作用*/
+ font-size: 26rpx;
+ text-align: center;
+}
+.image_list{
+  width: 100%;
+  height:100%;
+  border: 0 solid #ff0000;
+  border-radius: 100rpx;
+  background-color: #f10b2e;
+}
+.space{
+  display:flex;
+  width: 100%;
+  height: 10rpx;
+  background-color: #fff000;
+  margin-top: 0rpx;
+}  
+.space1{
+  display:flex;
+  width: 100%;
+  height: 10rpx;
+  background-color: #fff000;
+  margin-top: 60rpx;
+}
+.goods_img{
+  width: 44%;
+  height:200rpx; 
+  margin-left: 4%;
+}
+.goods_price{
+   float: left;
+   margin-left: 4%;
+}
+.goods_sales{
+  float: left;
+  margin-left:4%;
+}
+
+.goods_price1{
+   float: right;
+   margin-right: 4%;
+}
+.goods_sales1{
+  float: right;
+  margin-right:12%;
+}

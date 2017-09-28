@@ -1,0 +1,107 @@
+<!--pages/home/home.wxml-->
+
+<swiper indicator-dots="{{indicatorDots}}"  
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+        <swiper-item wx:for="{{imgUrls}}">  
+           <navigator url="{{item.link}}" hover-class="navigator-hover">  
+            <image src="{{item.url}}" class="slide-image" width="355" height="150"/>  
+           </navigator>   
+        </swiper-item>  
+</swiper>
+<view class="space"></view> 
+
+<view class="type">
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+</view>
+<view class="space1"></view> 
+<view class="type">
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+<view class="types">
+<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view >哈哈哈哈</view>
+</view>
+</view>
+<view class="space1"></view> 
+
+<!-- 下面是具体的商品内容 -->
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+
+<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
