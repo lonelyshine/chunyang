@@ -9,5 +9,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BannerContorller {
 	
-	
+	//asdgfhasgd fag 爱仕达规范化三孤独
 }
