@@ -1,0 +1,9 @@
+var menu = [
+  { value: 'one', height: 0, name: '零嘴没事', header: '我的header1我介绍', id: 1, food: [{ title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }] },
+  { value: 'two', height: 0, name: '水果蔬菜', header: '我的header2我介绍', id: 2, food: [{ title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }] },
+  { value: 'three', height: 0, name: '茶酒饮料', header: '我的header3我介绍', id: 3, food: [{ title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }] },
+  { value: 'four', height: 0, name: '居家好货', header: '我的header4我介绍', id: 4, food: [{ title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }] },
+  { value: 'five', height: 0, name: '海鲜水产', header: '我的header5我介绍', id: 5, food: [{ title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }, { title: '名称', cost: 200, intro: '简介', img: '../../img/1.jpg' }] }
+];
+
+module.exports = menu;

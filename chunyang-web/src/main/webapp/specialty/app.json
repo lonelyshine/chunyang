@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/classify/classify",
     "pages/mine/mine",
     "pages/index/index",
     "pages/home/home",
@@ -27,7 +28,7 @@
       },
       {
         "text": "分类",
-        "pagePath": "pages/types/types",
+        "pagePath": "pages/classify/classify",
         "iconPath": "images/type.png",
         "selectedIconPath": "images/type-actived.png"
       },

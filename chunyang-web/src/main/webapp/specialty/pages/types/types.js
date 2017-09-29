@@ -1,66 +1,71 @@
 // pages/types/types.js
+var menu = require("../common/menu.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    height: 0,
+    menu_list: [],
+    scrollTop: 100,
+    curIndex: 1,
+    toView: '',
+    listsHeight: [],
+    unitPx: 0.5,
+    toViewLeft: ''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var self = this;
+    self.setData({
+      menu_list: menu
+    });
+    wx.getSystemInfo({
+      success: function (res) {
+        self.setData({
+          height: res.windowHeight,
+          unitPx: res.windowWidth / 750
+        });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onReady: function (options) {
+    var list = this.getListHeight(menu, this.data.unitPx);
+    this.setData({
+      listsHeight: list
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  switchTab: function (e) {
+    this.setData({
+      curIndex: e.target.dataset.id,
+      toView: e.target.dataset.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  scroll: function (e) {
+    console.log(e.detail.scrollTop);
+    var heights = this.data.listsHeight;
+    var tempValue, tempId;
+    for (var i in heights) {
+      if (e.detail.scrollTop >= heights[i].height) {
+        tempValue = heights[i].value;
+        tempId = heights[i].id;
+      }
+    }
+    this.setData({
+      curIndex: tempId,
+      toViewLeft: tempValue
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getListHeight: function (arr, unit) {
+    var kidsLength = 0; //获取该列子元素的长度
+    for (var i in arr) {
+      if (i == 0) {
+        kidsLength = arr[i].food.length;
+        continue;
+      }
+      arr[i].height = arr[i - 1].height + (kidsLength * 130 + 50) * unit;
+      kidsLength = arr[i].food.length;
+    }
+    console.log(arr);
+    return arr;
   }
 })
