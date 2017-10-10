@@ -15,7 +15,7 @@ import java.security.*;
 import java.security.spec.InvalidParameterSpecException;
 
 /**
- * Created by yfs on 2017/2/6.
+ * 对微信小程序敏感数据进行解密
  * <p>
  * AES-128-CBC 加密方式
  * 注：
