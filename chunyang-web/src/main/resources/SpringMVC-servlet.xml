@@ -17,7 +17,7 @@
                         http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 <mvc:annotation-driven /> 
-
+<mvc:default-servlet-handler/>
     <!-- 返回json 方法一 需要导入 fastjson.jar包-->  
 	<!-- <mvc:annotation-driven>
         <mvc:message-converters register-defaults="false">
@@ -71,14 +71,21 @@
     <!-- 扫描web包，应用spring注解 -->
     <context:component-scan base-package="com.chunyang.web" />
     <!-- 扫描spring 某个jar包 -->
-    <context:component-scan base-package="org.springframework.web.client" />
+    <!-- <context:component-scan base-package="org.springframework.web.client" /> -->
     
      <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
             value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="" />
-        <property name="suffix" value=".html" />
-    </bean>
+        <property name="suffix" value=".jsp" />
+    </bean> 
     
+    
+
+    
+    <!-- 上传附件时需要进行配置 -->
+	<!-- Only needed because we require fileupload in the org.springframework.samples.mvc.fileupload package -->  
+   <!--  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />   -->
+	
 </beans>
