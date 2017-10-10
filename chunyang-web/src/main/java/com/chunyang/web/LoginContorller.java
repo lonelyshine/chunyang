@@ -35,16 +35,20 @@ public class LoginContorller {
 	private String wxspSecret;
 	@Value("${chunyang.wx-xcx.grant_type}")
 	private String grant_type;
+	@Value("${chunyang.wx-xcx.wx-xcx.wxspUrl}")
+	private String url;
+	
+	@Value("${chunyang.wx-xcx.grant_type_access_token}")
+	private String grant_type_access_token;
+	@Value("${chunyang.wx-xcx.wx-xcx.wxspAccess_tokenUrl}")
+	private String tokenUrl; 
+	
+	@Value("${chunyang.wx-xcx.wx-xcx.wxspUnionidUrl}")
+	private String wxspUnionidUrl; 
+	
 
 	private RestTemplate restTemplate = new RestTemplate();
 
-	
-/*	@RequestMapping(value="/")
-	public String login() {
-		Log log = LogFactory.getLog(LoginContorller.class);
-		log.info("登录成功");
-		return "login";
-	}*/
 
 	/**
 	 * 小程序登录认证 解密用户敏感数据
@@ -71,11 +75,11 @@ public class LoginContorller {
 			map.put("msg", "code 不能为空");
 			return map;
 		}
-
+		
 		/* 1、 向微信服务器 使用登录code 获取 session_key 和 openid */
 		// 下面是使用了spring中的RestTemplat的get请求方法请求微信服务器的，而且使用了rest的风格进行的访问
 		// getForObject()方法 第一个参数：访问的地址 第二个参数： 请求返回的数据类型 之后的参数为请求路径中包含的参数
-		String url = "https://api.weixin.qq.com/sns/jscode2session?appid={wxspAppid}&secret={wxspSecret}&js_code={code}&grant_type={grant_type}";
+		
 		// 发送请求
 		String str = restTemplate.getForObject(url, String.class, wxspAppid, wxspSecret, code, grant_type);
 		// 解析相关内容(转换成json)
@@ -83,8 +87,24 @@ public class LoginContorller {
 		// 获取会话秘钥
 		String session_key = json.getString("session_key");
 		// 获取用户的唯一标识
-		// String openid = json.getString("openid");
-
+		/*String openid = json.getString("openid");
+        
+	      
+		//发送请求 进行token验证(服务器验证)
+		String access_tokenStr = restTemplate.getForObject(tokenUrl, String.class, wxspAppid, wxspSecret, "client_credential");
+		// 解析相关内容(转换成json)
+		JSONObject access_token_json = JSONObject.fromObject(access_tokenStr);
+		// 获取access_token
+		String access_token = access_token_json.getString("access_token");
+		
+		//发送请求获取unionid
+		String unionidStr = restTemplate.getForObject(wxspUnionidUrl, String.class, access_token, openid);
+		// 解析相关内容(转换成json)
+		JSONObject unionid_json = JSONObject.fromObject(unionidStr);
+		// 获取access_token
+		String unionid = unionid_json.getString("unionid");
+		*/
+		
 		/* 2、 对encryptedData加密数据进行AES解密 */
 		try {
 			String result = AesCbcUtil.decrypt(encryptedData, session_key, iv, "UTF-8");
