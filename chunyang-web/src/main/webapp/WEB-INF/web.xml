@@ -17,27 +17,15 @@
 被设计为能在多个JSP Container 之间分散执行.
 范例: -->
 <distributable/>
-  
-  <servlet-mapping>  
-            <servlet-name>default</servlet-name>  
-            <url-pattern>*.css</url-pattern>  
-    </servlet-mapping>
-    <servlet-mapping>  
-            <servlet-name>default</servlet-name>  
-            <url-pattern>*.gif</url-pattern>  
-    </servlet-mapping>
-    <servlet-mapping>  
-            <servlet-name>default</servlet-name>  
-            <url-pattern>*.jpg</url-pattern>  
-    </servlet-mapping>  
-    <servlet-mapping>  
-            <servlet-name>default</servlet-name>  
-            <url-pattern>*.js</url-pattern>  
-    </servlet-mapping>  
-    <servlet-mapping> 
-            <servlet-name>default</servlet-name> 
-            <url-pattern>*.html</url-pattern> 
-    </servlet-mapping>
+    
+    <servlet-mapping>    
+    <servlet-name>default</servlet-name>    
+    <url-pattern>*.js</url-pattern>    
+    <url-pattern>*.css</url-pattern>    
+    <url-pattern>*.jpg"</url-pattern>    
+    <url-pattern>/images/*</url-pattern>
+    <url-pattern>*.html</url-pattern>    
+</servlet-mapping>
   
   <!-- 应用范围内(即整个项目)的上下文初始化参数 -->
   <!-- 1、项目启动时，首先加载listener和context 然后创建一个ServletContext（上下文）
@@ -60,23 +48,33 @@
         <!-- 默认是/WEB-INF/applicationContext.xml -->
   </context-param>
   
-  
+  <!-- 加载LOG4J -->
+<!-- 	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/log4j.xml</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>60000</param-value>
+	</context-param>
+   -->
   
   
   <!-- 过滤器元素将一个名字与javax.servlet.Filter相关联 -->
   <filter>
   <!-- 过滤器名字 -->
-     <filter-name>filter</filter-name>
+     <filter-name>loginFilter</filter-name>
      <!-- 过滤器的类路径  filter-class 中指定的过滤器类须继承 javax.servlet.Filter 具有须有以下三种方法：
        1、init(FilterConfig filterConfig):初始化，一般情况下是读取init-param中的param-name中的值，filterConfig.getinitParameter("param-name")
        2、doFilter()：用于对request、response进行处理，并且通过chain.doFilter交给下一个控制器
        3、destory():资源销毁
      -->
-     <filter-class>com.maven.filter.MyFilter</filter-class>
-     <init-param>
+     <filter-class>com.chunyang.filter.LoginFilter</filter-class>
+     <!-- <init-param>
        <param-name>param-name</param-name>
        <param-value>param-value</param-value>
-     </init-param>
+     </init-param> -->
   </filter>
   
   <!-- 这里要注意，需要将所有的filter都放在filter-maping之上 -->
@@ -85,10 +83,11 @@
   <!-- 一旦定义了filter过滤器 就需要filter-mapping把过滤器与一个或多个servlet或jsp页面相关联 -->
   <filter-mapping>
     <!-- 过滤器名字 -->
-    <filter-name>filter</filter-name>
+    <filter-name>loginFilter</filter-name>
     <!-- 拦截器拦截的路径配置 -->
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </filter-mapping>
+  
   
   <!-- 监听器 
     listener类似load-on-startup Servlet 在web启动时，启动某些后台程序，这些后台程序负责为系统提供支持
@@ -108,6 +107,11 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
+ <!-- 日志监听器 -->
+  <!-- <listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener> -->
+  
   <!-- servlet: 主要是用于将servlet类与url进行绑定，当用户访问该url时，实际上就是访问该servlet类 -->
   <servlet>
     <!-- serlvlet的名字，不要重复 -->
@@ -118,7 +122,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:SpringMVC-servlet.xml</param-value>
     </init-param> 
-    <Load-on-startup>1</Load-on-startup>
+    <!-- <Load-on-startup>1</Load-on-startup> -->
     <!-- Load-on-startup :标记容器是否在启动的时候就加载这个servlet，可以在这个servlet中加入你需要在项目启动时启动的相关内容
         当值为0或者大于0时，表示容器在应用启动时就加载这个servlet； 
 	当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。 
@@ -130,8 +134,29 @@
   	  <!-- serlvlet的名字，不要重复 -->
       <servlet-name>SpringMVC</servlet-name>
       <!-- 这是用户访问的路径 注意不要重复 -->
-      <url-pattern>/</url-pattern>
+      <url-pattern>/*</url-pattern>
   </servlet-mapping>
+  
+  <!-- spring框架提供的字符集过滤器 -->
+	<!-- spring Web MVC框架提供了org.springframework.web.filter.CharacterEncodingFilter用于解决POST方式造成的中文乱码问题  -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- force强制，促使 -->
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
   
   <!-- 笔者：如果想要深入的了解servlet 可以查看mvc相关内容 -->
   
@@ -176,18 +201,18 @@
   
   <!-- 欢迎页面 -->
   <welcome-file-list>
-    <welcome-file>/</welcome-file>
+    <welcome-file>login.html</welcome-file>
   </welcome-file-list>
   
   <!-- err-page:在http请求返回特定的状态码，或抛出异常时 可以制定需要显示的页面 -->
   <!-- 状态码配置 -->
   <error-page>
      <error-code>500</error-code>
-     <location>/WEB/INF/error/500.html</location>  
+     <location>/WEB-INF/error/500.html</location>  
   </error-page>
   <error-page>
      <error-code>400</error-code>
-     <location>/WEB/INF/error/400.html</location>  
+     <location>/WEB-INF/error/400.html</location>  
   </error-page>
   <!-- 异常配置 
     <error-page>

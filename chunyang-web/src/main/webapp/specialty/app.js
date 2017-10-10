@@ -87,7 +87,7 @@ App({
   },
 
   globalData: {
-    serverUrl: 'http://localhost:8021/chunyang-web',
+    serverUrl: 'http://localhost:8080/chunyang-web',
     userInfo: null,
     sessionInfo: null
   }
