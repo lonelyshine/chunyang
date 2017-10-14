@@ -126,5 +126,12 @@ Page({
       curNav: id,
       curIndex: index
     })
+  },
+
+  //点击搜索框触发时间
+  bindFocus: function () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   }
 })

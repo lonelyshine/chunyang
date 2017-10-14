@@ -1,3 +1,11 @@
+<view class="search">
+        <view>
+            <input class="search-input" placeholder="请输入搜索的商品" bindtap="bindFocus" auto-focus
+            bindinput="bindInput"  bindchange="bindchange" value="{{inputValue}}"/>
+        </view>
+        <button class="clearInput" style="display:inline-block" bindtap="clearInput">×</button>
+        <button  style="display:inline-block" bindtap="setSearchStorage">搜索</button>
+</view>
 <view class="container">
 <!--左侧栏-->
 <view class="nav_left">

@@ -1,1 +1,49 @@
 /* pages/search/search.wxss */
+.nav-header{
+  position:fixed;
+  z-index:99;
+  width:100%;
+  height: 100rpx;
+  background-color: #eee
+}
+.shaoyishao{
+  display: inline-block;
+  background: pink;
+   height: 30rpx;
+   width:30rpx
+}
+.search view{
+  display: inline-block;
+}
+.search .search-input{
+  display: inline-block;
+  background-color:#ff1;
+  position:relative;
+  height: 50rpx;
+  padding: 20rpx 105rpx 20rpx 30rpx;
+}
+.search-input icon{
+  position:absolute;
+  left:5rpx;
+  top:10rpx;
+}
+.outside{
+  position: absolute
+}
+.search-select{
+  display: inline-block
+}
+.local{
+  display: inline-block;
+  border: 1rpx red solid;
+  border-radius: 3rpx;
+  background-color: #eee;
+  margin-left: 10rpx;
+}
+.zong{
+  position:fixed;
+  margin-top: 120rpx;
+}
+.clearInput{
+  left: -10rpx;
+}

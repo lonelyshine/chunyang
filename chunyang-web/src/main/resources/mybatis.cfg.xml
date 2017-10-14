@@ -2,29 +2,6 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-config.dtd">  
 <configuration>  
- 
-<!--     <properties resource=""/>  
-    <environments default="HO">  
-        <environment id="HD">  
-            <transactionManager type="JDBC" />  
-            <dataSource type="POOLED">  
-                <property name="driver" value="${jdbc.driver}" />  
-                <property name="url" value="${jdbc.url}" />  
-                <property name="username" value="${jdbc.username}" />  
-                <property name="password" value="${jdbc.password}" />  
-            </dataSource>  
-        </environment>  
-        <environment id="HO">  
-            <transactionManager type="JDBC" />  
-            <dataSource type="POOLED">  
-                <property name="driver" value="${ho.jdbc.driverClassName}" />  
-                <property name="url" value="${ho.jdbc.url}" />  
-                <property name="username" value="${ho.jdbc.username}" />  
-                <property name="password" value="${ho.jdbc.password}" />  
-            </dataSource>  
-        </environment>  
-    </environments>   -->
-    
     <!-- 该文件主要是用于分页配置 -->
     
     <plugins>
@@ -56,8 +33,8 @@
 </plugins>
     
  <mappers>  
- <!-- <mapper resource="com/cy/ssm/mapper/tool.xml" /> Mapper文件可以和interface不在相同路径下！  
- <mapper resource="com/cy/ssm/mapper/FileMapper.xml" /> Mapper文件可以和interface不在相同路径下！
+ <mapper resource="com/chunyang/mapper/homeMapper.xml" /> <!-- Mapper文件可以和interface不在相同路径下！   -->
+ <!--<mapper resource="com/cy/ssm/mapper/FileMapper.xml" /> Mapper文件可以和interface不在相同路径下！
  <mapper resource="com/cy/ssm/mapper/TalkMapper.xml" /> Mapper文件可以和interface不在相同路径下！ 
  <mapper resource="com/cy/ssm/mapper/JsrunMapper.xml" /> Mapper文件可以和interface不在相同路径下！ -->   
 </mappers> 

@@ -1,66 +1,81 @@
-// pages/search/search.js
+//index.js
+//获取应用实例
+var app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    selectHide:false,
+    inputValue:'',
+    getSearch:[],
+    modalHidden:true
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  bindInput:function(e){
+     this.setData({
+       inputValue:e.detail.value
+     })
+     console.log('bindInput'+this.data.inputValue)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  setSearchStorage:function(){
+    let data;
+    let localStorageValue = [];
+    if(this.data.inputValue != ''){
+      //调用API从本地缓存中获取数据
+      var searchData = wx.getStorageSync('searchData') || []
+      searchData.push(this.data.inputValue)
+      wx.setStorageSync('searchData', searchData)
+      wx.navigateTo({
+          url: '../result/result'
+      })
+      // console.log('马上就要跳转了！')
+    }else{
+      console.log('空白的你搜个jb')
+    }
+    // this.onLoad();
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  modalChangeConfirm:function(){
+      wx.setStorageSync('searchData',[])
+      this.setData({
+        modalHidden:true
+      })
+      wx.redirectTo({
+        url: '../search/search'
+      })
+      // this.onLoad();
+      
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  modalChangeCancel:function(){
+      this.setData({
+        modalHidden:true
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  clearSearchStorage:function(){
+     this.setData({
+        modalHidden:false
+    })
+    // this.onLoad();
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  onLoad: function() {
+    console.log('search is onLoad');
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  onShow:function(){
+    var getSearch = wx.getStorageSync('searchData');
+    this.setData({
+      getSearch:getSearch,
+      inputValue:''
+    })
+    console.log('search is onshow')
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onHide:function(){
+    console.log('search is onHide')
+    wx.redirectTo({
+        url: '../search/search'
+    })
+  },
+  bindchange:function(e){
+    console.log('bindchange')
+  },
+  clearInput:function(){
+    this.setData({
+       inputValue:''
+     })
   }
 })
