@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunyang.mapper.HomeMapper11">
+
+	<!-- 查询用户是否存在邮箱 -->
+	<select id="getUserInfo111" parameterType="String"  resultType="Map" statementType="STATEMENT">  
+      select t.user_name,t.psw from sampledb.t_user t where t.user_name ='${username}'
+	</select>
+</mapper>	

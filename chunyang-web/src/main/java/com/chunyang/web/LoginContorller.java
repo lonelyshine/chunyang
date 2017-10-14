@@ -3,9 +3,6 @@ package com.chunyang.web;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.chunyang.service.UserService;
 import com.chunyang.util.AesCbcUtil;
 
 import net.sf.json.JSONObject;
@@ -87,10 +82,10 @@ public class LoginContorller {
 		// 获取会话秘钥
 		String session_key = json.getString("session_key");
 		// 获取用户的唯一标识
-		/*String openid = json.getString("openid");
-        
+		//String openid = json.getString("openid");
 	      
-		//发送请求 进行token验证(服务器验证)
+		//下面是进行服务器验证，需要到开发者平台进行服务器配置
+		/*//发送请求 进行token验证(服务器验证)
 		String access_tokenStr = restTemplate.getForObject(tokenUrl, String.class, wxspAppid, wxspSecret, "client_credential");
 		// 解析相关内容(转换成json)
 		JSONObject access_token_json = JSONObject.fromObject(access_tokenStr);
@@ -102,8 +97,8 @@ public class LoginContorller {
 		// 解析相关内容(转换成json)
 		JSONObject unionid_json = JSONObject.fromObject(unionidStr);
 		// 获取access_token
-		String unionid = unionid_json.getString("unionid");
-		*/
+		String unionid = unionid_json.getString("unionid");*/
+		
 		
 		/* 2、 对encryptedData加密数据进行AES解密 */
 		try {

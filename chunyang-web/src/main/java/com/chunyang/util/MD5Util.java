@@ -67,10 +67,10 @@ public class MD5Util {
 		return beggin+middle+end;
 	}
 	
-	public static void main (String arg[]) throws NoSuchAlgorithmException{
-		System.out.println(EncodeByMD5("11"));
-		System.out.println(DecodeByMD5("11", "e2d3a74549c20b0a"));
-	}	
+	public static void main(String args[]) throws NoSuchAlgorithmException{
+		System.out.println(EncodeByMD5("adc"));
+		System.out.println(DecodeByMD5("adc", "eb0e999e65d4a710"));
+	}
 }
 
 
