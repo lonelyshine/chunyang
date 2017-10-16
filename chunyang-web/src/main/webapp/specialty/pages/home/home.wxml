@@ -43,8 +43,8 @@
 <view >哈哈哈哈</view>
 </view>
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/classify.png"></image>
+<view >分类</view>
 </view>
 </view>
 <view class="space1"></view> 
