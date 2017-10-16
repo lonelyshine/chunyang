@@ -1,4 +1,7 @@
 <!--pages/shop/shop.wxml-->
+
+
+<view class="shop-item">
 <!-- 店铺 -->
 <view class="shop">
 <image class="choose" src="../../images/choose.png"></image> <image class="company" src="../../images/company.png"></image> <text class="shopname">好吃一家店 </text>
@@ -28,7 +31,172 @@
 <image class="good-edit-image" src="../../images/good-edit.png"></image>
 <text class="good-num">x1</text>
 </view>
+</view>
+
+
+<!-- 分割线 -->
+<view class="good-cut">
+<view class="good-cut-off"></view>
+</view>
+
+
+
+<!-- 商品 -->
+<view class="goods">
+<image class="choose" src="../../images/choose.png"></image> <image class="good-image" src="../../images/11111.png"></image> 
+
+<!-- 商品简介 -->
+<view class="good-content">
+<text class="good-title">这个水果很好吃，大家都快过来买啊，奥术大师大所大所大所多阿</text>
+<text class="good-remark">这个水果很好吃</text>
+<!-- 价格 -->
+<text class="good-price">
+<text class="good-currentprice">￥150</text>
+<text class="good-costprice">￥250</text>
+</text>
+</view>
+
+<!--编辑框-->
+<view class="good-edit">
+<image class="good-edit-image" src="../../images/good-edit.png"></image>
+<text class="good-num">x1</text>
+</view>
+</view>
+
 
 </view>
 
 
+<!-- 店铺分割线 -->
+<view class="shop-cut-off"></view>
+
+
+
+<view class="shop-item">
+<!-- 店铺 -->
+<view class="shop">
+<image class="choose" src="../../images/choose.png"></image> <image class="company" src="../../images/company.png"></image> <text class="shopname">好吃一家店 </text>
+<text class="enter">></text>
+<text class="getcoupon">领券</text>
+</view>
+<!-- 分割线 -->
+<view class="cut-off"></view>
+
+<!-- 商品 -->
+<view class="goods">
+<image class="choose" src="../../images/choose.png"></image> <image class="good-image" src="../../images/11111.png"></image> 
+
+<!-- 商品简介 -->
+<view class="good-content">
+<text class="good-title">这个水果很好吃，大家都快过来买啊，奥术大师大所大所大所多阿</text>
+<text class="good-remark">这个水果很好吃</text>
+<!-- 价格 -->
+<text class="good-price">
+<text class="good-currentprice">￥150</text>
+<text class="good-costprice">￥250</text>
+</text>
+</view>
+
+<!--编辑框-->
+<view class="good-edit">
+<image class="good-edit-image" src="../../images/good-edit.png"></image>
+<text class="good-num">x1</text>
+</view>
+</view>
+
+
+<!-- 分割线 -->
+<view class="good-cut">
+<view class="good-cut-off"></view>
+</view>
+
+
+
+<!-- 商品 -->
+<view class="goods">
+<image class="choose" src="../../images/choose.png"></image> <image class="good-image" src="../../images/11111.png"></image> 
+
+<!-- 商品简介 -->
+<view class="good-content">
+<text class="good-title">这个水果很好吃，大家都快过来买啊，奥术大师大所大所大所多阿</text>
+<text class="good-remark">这个水果很好吃</text>
+<!-- 价格 -->
+<text class="good-price">
+<text class="good-currentprice">￥150</text>
+<text class="good-costprice">￥250</text>
+</text>
+</view>
+
+<!--编辑框-->
+<view class="good-edit">
+<image class="good-edit-image" src="../../images/good-edit.png"></image>
+<text class="good-num">x1</text>
+</view>
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+<!-- 店铺底部 -->
+<view class="shop-bottom">
+<image class="line-left" src="../../images/line-left.png"></image>
+<image class="heart" src="../../images/heart.png"></image>
+<text class="shop-remark">购物车帮你挑</text>
+<image class="line-right" src="../../images/line-right.png"></image>
+</view>
+
+<!-- 购物车帮你挑 -->
+<view class="shop-car">
+<!--左侧-->
+<view class="shop-car-left">
+<image class="shop-car-image" src="../../images/11111.png"></image>
+<text class="shop-car-title">中国游戏哈的阿萨德会告诉爱上孤独爱上个电话告诉大哥爱上</text>
+<text class="shop-car-price">
+<text class="shop-car-currentprice">￥99</text>
+<text class="shop-car-shopnum">15555人已购买</text>
+</text>
+</view>
+<!--分割线-->
+<view class="shop-car-cut-off"></view>
+<!--右侧-->
+<view class="shop-car-right">
+<image class="shop-car-image" src="../../images/11111.png"></image>
+<text class="shop-car-title">中国游戏哈的阿萨德会告诉爱上孤独爱上个电话告诉大哥爱上</text>
+<text class="shop-car-price">
+<text class="shop-car-currentprice">￥99</text>
+<text class="shop-car-shopnum">15555人已购买</text>
+</text>
+</view>
+</view>
+
+
+<!-- 购物车帮你挑 -->
+<view class="shop-car">
+<!--左侧-->
+<view class="shop-car-left">
+<image class="shop-car-image" src="../../images/11111.png"></image>
+<text class="shop-car-title">中国游戏哈的阿萨德会告诉爱上孤独爱上个电话告诉大哥爱上</text>
+<text class="shop-car-price">
+<text class="shop-car-currentprice">￥99</text>
+<text class="shop-car-shopnum">15555人已购买</text>
+</text>
+</view>
+<!--分割线-->
+<view class="shop-car-cut-off"></view>
+<!--右侧-->
+<view class="shop-car-right">
+<image class="shop-car-image" src="../../images/11111.png"></image>
+<text class="shop-car-title">中国游戏哈的阿萨德会告诉爱上孤独爱上个电话告诉大哥爱上</text>
+<text class="shop-car-price">
+<text class="shop-car-currentprice">￥99</text>
+<text class="shop-car-shopnum">15555人已购买</text>
+</text>
+</view>
+</view>

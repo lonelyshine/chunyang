@@ -1,10 +1,14 @@
 /* pages/shop/shop.wxss */
-
+.shop-item{
+  display: flex;
+  flex-direction: column;
+}
 .shop{
   width: 100%;
-  height: 50rpx;
+  height: 80rpx;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .choose{
   display: flex;
@@ -30,7 +34,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  color: #D8D8D8;
+  color: #EFEFEF;
   margin-left: 2%;
 }
 .getcoupon{
@@ -44,23 +48,23 @@
   border: 0;
   border-bottom: 1px solid #ccc;
   background: #999;
-  margin-top: 20rpx;
+  margin-top: 0rpx;
 }
 
 .goods{
-  height: 180rpx;
+  height: 200rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .good-image{
   display: flex;
-  width: 150rpx;
-  height: 150rpx;
+  width: 180rpx;
+  height: 180rpx;
   margin-left: 4%;
 }
 .good-content{
-  height: 150rpx;
+  height: 180rpx;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -97,7 +101,7 @@
   right: 10rpx;
   display: flex;
   flex-direction: column;
-  height: 180rpx;
+  height: 200rpx;
   align-items: center;
 }
 .good-edit-image{
@@ -111,5 +115,94 @@
   font-size: 24rpx;
   color: #969696;
   margin-bottom: 15rpx;
-  top: 110rpx;
+  top: 100rpx;
+}
+.good-cut{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.good-cut-off{
+  display: flex;
+  width: 60%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background: #999;
+}
+.shop-cut-off{
+  width: 100%;
+  height: 15rpx;
+  background-color: #EFEFEF;
+}
+
+.shop-bottom{
+  display: flex;
+  width: 100%;
+  height: 60rpx;
+  background-color: #EFEFEF;
+  align-items: center;
+  justify-content: center;
+}
+
+.line-left{
+  width: 5%;
+  height: 50rpx;
+}
+.heart{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.shop-remark{
+  color: #DA2C16;
+  margin-left: 20rpx;
+}
+.line-right{
+  width: 5%;
+  height: 50rpx;
+  margin-left: 20rpx;
+}
+
+.shop-car{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.shop-car-left{
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  height: 520rpx;
+}
+.shop-car-image{
+  width: 100%;
+  height: 400rpx;
+}
+.shop-car-title{
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+shop-car-price{
+display: flex;
+flex-direction: row;
+width: 100%;
+}
+.shop-car-currentprice{
+font-size: 28rpx;
+ color: red;
+ margin-left: 20rpx;
+}
+.shop-car-right{
+  width: 48%;
+   display: flex;
+  flex-direction: column;
+  height: 520rpx;
+}
+.shop-car-shopnum{
+ font-size: 24rpx;
+ color: #969696;
+ margin-left: 10rpx;
+}
+.shop-car-cut-off{
+  width: 4%;
 }
