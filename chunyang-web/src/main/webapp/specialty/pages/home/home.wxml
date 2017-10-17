@@ -2,9 +2,9 @@
 
 <swiper indicator-dots="{{indicatorDots}}"  
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
-        <swiper-item wx:for="{{imgUrls}}">  
-           <navigator url="{{item.link}}" hover-class="navigator-hover">  
-            <image src="{{item.url}}" class="slide-image" width="355" height="150"/>  
+        <swiper-item wx:for="{{banner}}">  
+           <navigator url="{{item.linkUrl}}" hover-class="navigator-hover">  
+            <image src="{{item.imgUrl}}" class="slide-image" width="355" height="150"/>  
            </navigator>   
         </swiper-item>  
 </swiper>
@@ -12,29 +12,33 @@
 
 <view class="type">
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/supermarket.png"></image>
+<view >超市</view>
 </view>
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/bargainprice.png"></image>
+<view >特价活动</view>
 </view>
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/china.png"></image>
+<view >地域特产</view>
 </view>
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/international.png"></image>
+<view >国际特产</view>
+</view>
+<view class="types">
+<image class="image_list" src="../../images/findfood.png"></image>
+<view >发现之旅</view>
 </view>
 </view>
 <view class="space1"></view> 
 <view class="type">
 <view class="types">
-<image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view >哈哈哈哈</view>
+<image class="image_list" src="../../images/classify.png"></image>
+<view >分类</view>
 </view>
-<view class="types">
+<!--<view class="types">
 <image class="image_list" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
 <view >哈哈哈哈</view>
 </view>
@@ -45,63 +49,25 @@
 <view class="types">
 <image class="image_list" src="../../images/classify.png"></image>
 <view >分类</view>
-</view>
+</view>-->
 </view>
 <view class="space1"></view> 
 
 <!-- 下面是具体的商品内容 -->
+<view class="goodslist">
+<view class="goods" wx:for="{{goods}}">
+<view class="goods-left" wx:if="{{index%2==0}}" bindtap="goodscontent" data-linkUrl="{{item.linkUrl}}">
+<image class="goods_img" src="{{item.imgUrl}}"></image>
+<view class="good-price-sales">
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>
+</view>
+</view>
 
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-
-<image class="goods_img" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>   <view class="goods_sales1">销量：0</view> <view class="goods_price1">￥5000</view>
+<view class="goods-right" wx:if="{{index%2==1}}" bindtap="goodscontent" data-linkUrl="{{item.linkUrl}}">
+<image class="goods_img" src="{{item.imgUrl}}"></image>
+<view class="good-price-sales">
+<view class="goods_price">￥5000</view><view class="goods_sales">销量：0</view>
+</view>
+</view>
+</view>
+</view>

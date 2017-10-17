@@ -1,33 +1,27 @@
 // pages/home/home.js
+var util = require('../../utils/util.js');
+//获取应用实例
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      {
-        link: '/pages/index/index',
-        url: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-      }, {
-        link: '/pages/logs/logs',
-        url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
-      }, {
-        link: '/pages/test/test',
-        url: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-      }
-    ],
+    banner: [],//首页轮播展示的banner
     indicatorDots: true,//是否出现焦点 也就是图片下方的焦点
     autoplay: true,//是否自动播放
-    interval: 5000,//自动播放的间隔时间
-    duration: 1000//滑动动画时间
+    interval: 5000, //自动播放的间隔时间
+    duration: 1000, //滑动动画时间
+
+    goods:[]//首页商品内容
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   
   },
 
   /**
@@ -41,7 +35,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    //加载banner
+    this.getHomeBanner();
+    //加载首页的商品内容
+    this.getHomeProduct();
   },
 
   /**
@@ -77,5 +74,58 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /**
+   * 获取首页banner
+   */
+  getHomeBanner:function(){
+    var me = this;
+    console.log(me.data.banner);
+    var serverUrl = app.globalData.serverUrl;
+    // 请求服务器
+    wx.request({
+      url: serverUrl + '/home/banner',
+      method: 'GET',
+      data: {},
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        var banner = me.data.banner;
+        var data = res.data;
+        me.setData({
+          banner: data
+        });
+      }
+    })
+  },
+
+  getHomeProduct:function(){
+    var me = this;
+    console.log(me.data.banner);
+    var serverUrl = app.globalData.serverUrl;
+    // 请求服务器
+    wx.request({
+      url: serverUrl + '/home/product',
+      method: 'GET',
+      data: {},
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        var goods = me.data.goods;
+        var data = res.data;
+        me.setData({
+          goods : data
+        });
+      }
+    })
+  },
+
+  goodscontent: function (e){
+    var params = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: params.linkurl
+    })
   }
 })

@@ -1,23 +1,25 @@
 page{  
 background: #f5f5f5;
 } 
-.search view{
-  display: inline-block;
+.search{
+  display: flex;
+  flex-direction: row;
 }
-.search .search-input{
-  display: inline-block;
+.search-border{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color:#ff1;
-  position:relative;
+  border-style: solid;
+  border-color: #dedede;
+}
+.classify-search{
+  width: 50rpx;
   height: 50rpx;
-  padding: 20rpx 105rpx 20rpx 30rpx;
-}
-.search-input icon{
-  position:absolute;
-  left:10rpx;
-  top:20rpx;
-}
-.clearInput{
-  left: -10rpx;
+}.search-input{
+  height: 80rpx;
+  width: 90%;
 }
 /*总体主盒子*/  
 .container {  

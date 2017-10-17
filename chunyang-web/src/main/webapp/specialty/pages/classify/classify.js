@@ -127,7 +127,6 @@ Page({
       curIndex: index
     })
   },
-
   //点击搜索框触发时间
   bindFocus: function () {
     wx.navigateTo({

@@ -1,12 +1,12 @@
 {
   "pages":[
-    "pages/search/search",
-    "pages/classify/classify",
     "pages/home/home",
     "pages/index/index",
+    "pages/classify/classify",
+    "pages/search/search",
+    "pages/types/types",
     "pages/shop/shop",
     "pages/mine/mine",
-    "pages/types/types",
     "pages/logs/logs"
   ],
   "window":{
